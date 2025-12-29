@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - SA: Pre-Treatment</title>
+<title>SA: Pre-Treatment – JDemetra+ documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,13 +96,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -107,12 +142,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-sa-pre-treatment.html">SA: Pre-Treatment</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-sa-pre-treatment.html">SA: Pre-Treatment</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -122,30 +157,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -183,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algorithms</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -290,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -343,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -386,6 +421,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State space framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
   </div>
@@ -407,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -429,12 +470,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-ARIMA model Results and Diagnostics</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-sa-pre-treatment.html">SA: Pre-Treatment</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sa-pre-t" class="quarto-section-identifier">SA: Pre-Treatment</span></h1>
 </div>
@@ -449,13 +490,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
-<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
-<p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="#m-reg-a">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
+<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="#a-reg-a">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
+<p>More in-depth methodological explanations of the algorithms can be found in <a href="#part-M">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
@@ -465,8 +508,8 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
-<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="A-calendar-correction.html">here</a></p></li>
-<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="A-outlier-detection.html">here</a></p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="#a-cal">here</a></p></li>
+<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="#a-out-reg-ext">here</a></p></li>
 <li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
 </section>
@@ -490,7 +533,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X-13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.</p>
 <section id="a-pre-t-def-spec-x13" class="level4">
 <h4 class="anchored" data-anchor-id="a-pre-t-def-spec-x13">Starting point for X-13-ARIMA</h4>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 22%">
@@ -575,7 +618,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </section>
 <section id="sa-pre-t-ts-specs" class="level4">
 <h4 class="anchored" data-anchor-id="sa-pre-t-ts-specs">Starting point for Tramo-Seats</h4>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 22%">
@@ -645,14 +688,14 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RM_C_pic20.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Creating a new specification in the <em>Seasonal adjustment</em> section</strong></figcaption>
+<figcaption><strong>Creating a new specification in the <em>Seasonal adjustment</em> section</strong></figcaption>
 </figure>
 </div>
 <p>Next, double click on the newly created specification, change the settings accordingly and confirm with the <strong>OK</strong> button.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RM_C_pic21.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Changing settings of seasonal adjustment specification</strong></figcaption>
+<figcaption><strong>Changing settings of seasonal adjustment specification</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -662,7 +705,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <h4 class="anchored" data-anchor-id="estimation-span">Estimation span</h4>
 <p>Specifies the span (data interval) of the time series to be used in the seasonal adjustment process. The user can restrict the span</p>
 <p>Common settings</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 87%">
@@ -723,7 +766,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Spans.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Setting series span in R</strong></figcaption>
+<figcaption><strong>Setting series span in R</strong></figcaption>
 </figure>
 </div>
 <p>X-13 in version 2</p>
@@ -782,7 +825,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <h4 class="anchored" data-anchor-id="setting-model-span">Setting model span</h4>
 <p>The user can also specify the span (data interval) of the time series to be used for the estimation of the Reg-ARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. Setting works the same way as setting series (estimation) span described above.</p>
 <p>Additional (vs series span setting) parameters are described below:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 81%">
@@ -816,7 +859,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_model_spans.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Setting in R</strong></figcaption>
+<figcaption><strong>Setting in R</strong></figcaption>
 </figure>
 </div>
 <p>Tramo example in version 2</p>
@@ -864,7 +907,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_transfo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Model span setting</figcaption>
+<figcaption>Model span setting</figcaption>
 </figure>
 </div>
 <p><strong>Set and in R</strong></p>
@@ -951,13 +994,13 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_options.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>STEP 1: Selection from JDemetra+ Default…or User_defined</strong></figcaption>
+<figcaption><strong>STEP 1: Selection from JDemetra+ Default…or User_defined</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_default_options.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>STEP2: Calendar effects minus Easter are labeled <em>trading days</em> </strong></figcaption>
+<figcaption><strong>STEP2: Calendar effects minus Easter are labeled <em>trading days</em> </strong></figcaption>
 </figure>
 </div>
 </section>
@@ -967,7 +1010,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_custom.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The list of calendars displayed under <em>Holidays</em> option corresponds to the calendars defined in the <em>Workspace</em> window</strong></figcaption>
+<figcaption><strong>The list of calendars displayed under <em>Holidays</em> option corresponds to the calendars defined in the <em>Workspace</em> window</strong></figcaption>
 </figure>
 </div>
 <p>Missing: stock td option, length-of-period</p>
@@ -979,7 +1022,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_easter_options.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>easter Options</strong></figcaption>
+<figcaption><strong>easter Options</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1078,7 +1121,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Calendar_EJOR_Test.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>F-Test results in GUI</strong></figcaption>
+<figcaption><strong>F-Test results in GUI</strong></figcaption>
 </figure>
 </div>
 <p><strong>In R</strong></p>
@@ -1164,13 +1207,13 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_Automatic_detection.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Automatic detection of outliers in GUI</strong></figcaption>
+<figcaption><strong>Automatic detection of outliers in GUI</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_automatic_detection_span.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Outliers types in GUI</strong></figcaption>
+<figcaption><strong>Outliers types in GUI</strong></figcaption>
 </figure>
 </div>
 <p>Pre-specified :</p>
@@ -1183,28 +1226,28 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_set_pre_specified.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Pre-specified outliers in GUI</strong></figcaption>
+<figcaption><strong>Pre-specified outliers in GUI</strong></figcaption>
 </figure>
 </div>
 <p>To change the view to set the outliers, got to Tools –&gt; Options</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_option_v3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Options in GUI</figcaption>
+<figcaption>Options in GUI</figcaption>
 </figure>
 </div>
 <p>Then to <strong>Demetra</strong> –&gt; <strong>Pre-specified Outliers</strong> –&gt; <strong>Calendar-like Grid</strong> –&gt; <strong>Ok</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_option_calendar_view_v3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Change view to calendar</strong></figcaption>
+<figcaption><strong>Change view to calendar</strong></figcaption>
 </figure>
 </div>
 <p>Then you have the calendar view (when selecting the pre-specified outliers) :</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_set_pre_specified_grid.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">**Calendar view in GUI</figcaption>
+<figcaption>**Calendar view in GUI</figcaption>
 </figure>
 </div>
 </section>
@@ -1221,7 +1264,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_Retrieve_params1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Main results in GUI</strong></figcaption>
+<figcaption><strong>Main results in GUI</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1231,7 +1274,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_Retrieve_Regressors.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Regressors in GUI</strong></figcaption>
+<figcaption><strong>Regressors in GUI</strong></figcaption>
 </figure>
 </div>
 <p><strong>In R</strong></p>
@@ -1243,7 +1286,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Outliers_Retrieve_Regression_Results.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Regression details in GUI</strong></figcaption>
+<figcaption><strong>Regression details in GUI</strong></figcaption>
 </figure>
 </div>
 <p><strong>In R</strong></p>
@@ -1277,7 +1320,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_User_def_Regressors_1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Creation of user-defined variables in GUI</strong></figcaption>
+<figcaption><strong>Creation of user-defined variables in GUI</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1293,7 +1336,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_user_def_regs_ramps_definition.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Creation of ramp variable in GUI</strong></figcaption>
+<figcaption><strong>Creation of ramp variable in GUI</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1322,19 +1365,19 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_user_def_inter_var_1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Step 1</strong></figcaption>
+<figcaption><strong>Step 1</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_user_def_inter_var_2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Step 2</strong></figcaption>
+<figcaption><strong>Step 2</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_calendar_user_def_inter_var_3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Step 3</strong></figcaption>
+<figcaption><strong>Step 3</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1371,7 +1414,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_user_vars_retrieving_regressors.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Regressors in GUI</strong></figcaption>
+<figcaption><strong>Regressors in GUI</strong></figcaption>
 </figure>
 </div>
 <p><strong>In R</strong></p>
@@ -1384,7 +1427,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_user_vars_regression_details.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Regression details</strong></figcaption>
+<figcaption><strong>Regression details</strong></figcaption>
 </figure>
 </div>
 <p><strong>IN R</strong></p>
@@ -1422,7 +1465,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_auto_params_v2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Setting in GUI in v2</strong></figcaption>
+<figcaption><strong>Setting in GUI in v2</strong></figcaption>
 </figure>
 </div>
 </div>
@@ -1430,7 +1473,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_auto_params_v3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Setting in GUI in v3</strong></figcaption>
+<figcaption><strong>Setting in GUI in v3</strong></figcaption>
 </figure>
 </div>
 </div>
@@ -1440,13 +1483,13 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_forecast_horizon_tramo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Forecast horizon when using Tramo-Seats</strong></figcaption>
+<figcaption><strong>Forecast horizon when using Tramo-Seats</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_forecast_horizon_X11.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Forecast horizon when using X-13-ARIMA</strong></figcaption>
+<figcaption><strong>Forecast horizon when using X-13-ARIMA</strong></figcaption>
 </figure>
 </div>
 <p><strong>Setting in R</strong> (first template, then worked example) X-13-ARIMA template in version 2</p>
@@ -1488,13 +1531,13 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_user_params_1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Manual ARIMA modelling</strong></figcaption>
+<figcaption><strong>Manual ARIMA modelling</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_user_params_2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Fixing coefficients</strong></figcaption>
+<figcaption><strong>Fixing coefficients</strong></figcaption>
 </figure>
 </div>
 <p><strong>Setting in R</strong></p>
@@ -1536,33 +1579,33 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_model_results_1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Final model</strong></figcaption>
+<figcaption><strong>Final model</strong></figcaption>
 </figure>
 </div>
 <p>More details in Pre-processing/ARIMA Node</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_model_results_2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>ARIMA details</strong></figcaption>
+<figcaption><strong>ARIMA details</strong></figcaption>
 </figure>
 </div>
 <p>In residual Node</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_Model_Residuals_Node.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Residuals</strong></figcaption>
+<figcaption><strong>Residuals</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_Model_Residuals_Node_7.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Distribution</strong></figcaption>
+<figcaption><strong>Distribution</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Likelihood</strong></figcaption>
+<figcaption><strong>Likelihood</strong></figcaption>
 </figure>
 </div>
 <p><img src="All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png" class="img-fluid"></p>
@@ -1570,7 +1613,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_ARIMA_Model_residuals_seaso_tests.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Residuals</strong></figcaption>
+<figcaption><strong>Residuals</strong></figcaption>
 </figure>
 </div>
 
@@ -1615,18 +1658,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1658,11 +1690,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jdemetra-new-documentation\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1672,8 +1743,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1685,7 +1765,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1729,6 +1932,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1754,6 +1958,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1815,12 +2045,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./A-sa-overview.html" class="pagination-link">
+      <a href="./A-sa-overview.html" class="pagination-link" aria-label="Seasonal Adjustment (SA) Overview">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Seasonal Adjustment (SA) Overview</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./A-sa-X11-decomposition.html" class="pagination-link">
+      <a href="./A-sa-X11-decomposition.html" class="pagination-link" aria-label="SA: X11 Decomposition">
         <span class="nav-page-text">SA: X11 Decomposition</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1828,13 +2058,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-left">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right"></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<li>
+<a href="https://github.com/annasmyk/JD_Quarto_Book" target="blank">Code source</a>
+</li>
+</div>
   </div>
 </footer>
+
 
 
 

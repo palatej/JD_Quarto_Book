@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>State space framework – JDemetra+ documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./M-Temp-Disagg-Bench.html" rel="next">
+<link href="./M-STL-decomposition.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-state-space-framework.html">State space framework</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is JDemetra+?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Pre-Treatment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Seats Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and external regressors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar correction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cruncher and quality report</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-ARIMA models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X11 decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seats decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">State space framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1. Overview</a>
+  <ul class="collapse">
+  <li><a href="#description-of-the-general-model" id="toc-description-of-the-general-model" class="nav-link" data-scroll-target="#description-of-the-general-model">1.1 Description of the general model</a></li>
+  <li><a href="#other-notations" id="toc-other-notations" class="nav-link" data-scroll-target="#other-notations">1.2 Other notations</a></li>
+  <li><a href="#functional-forms" id="toc-functional-forms" class="nav-link" data-scroll-target="#functional-forms">1.3 Functional forms</a></li>
+  </ul></li>
+  <li><a href="#main-algorithms" id="toc-main-algorithms" class="nav-link" data-scroll-target="#main-algorithms">2. Main algorithms</a>
+  <ul class="collapse">
+  <li><a href="#stationary-models" id="toc-stationary-models" class="nav-link" data-scroll-target="#stationary-models">2.1 Stationary models</a></li>
+  <li><a href="#non-stationary-models" id="toc-non-stationary-models" class="nav-link" data-scroll-target="#non-stationary-models">2.2 Non-stationary models</a></li>
+  </ul></li>
+  <li><a href="#definition-of-the-model-by-blocks" id="toc-definition-of-the-model-by-blocks" class="nav-link" data-scroll-target="#definition-of-the-model-by-blocks">3. Definition of the model by blocks</a></li>
+  <li><a href="#description-of-the-predefined-blocks-available-in-jd" id="toc-description-of-the-predefined-blocks-available-in-jd" class="nav-link" data-scroll-target="#description-of-the-predefined-blocks-available-in-jd">4. Description of the predefined blocks available in JD+</a>
+  <ul class="collapse">
+  <li><a href="#atomic-blocks" id="toc-atomic-blocks" class="nav-link" data-scroll-target="#atomic-blocks">4.1 Atomic blocks</a></li>
+  <li><a href="#arma-model" id="toc-arma-model" class="nav-link" data-scroll-target="#arma-model">4.1.1 ARMA model</a></li>
+  <li><a href="#time-dependent-arma-model" id="toc-time-dependent-arma-model" class="nav-link" data-scroll-target="#time-dependent-arma-model">4.1.2 Time dependent ARMA model</a></li>
+  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model">4.1.3 ARIMA model</a></li>
+  <li><a href="#noise" id="toc-noise" class="nav-link" data-scroll-target="#noise">4.1.3 Noise</a></li>
+  <li><a href="#local-level" id="toc-local-level" class="nav-link" data-scroll-target="#local-level">4.1.4 Local level</a></li>
+  <li><a href="#local-linear-trend" id="toc-local-linear-trend" class="nav-link" data-scroll-target="#local-linear-trend">4.1.5 Local linear trend</a></li>
+  <li><a href="#seasonal-component" id="toc-seasonal-component" class="nav-link" data-scroll-target="#seasonal-component">4.1.6 Seasonal component</a></li>
+  <li><a href="#cyclical-component" id="toc-cyclical-component" class="nav-link" data-scroll-target="#cyclical-component">4.1.7 Cyclical component</a></li>
+  <li><a href="#complex-blocks" id="toc-complex-blocks" class="nav-link" data-scroll-target="#complex-blocks">4.2 Complex blocks</a></li>
+  </ul></li>
+  <li><a href="#java-design" id="toc-java-design" class="nav-link" data-scroll-target="#java-design">5. Java design</a></li>
+  <li><a href="#r-design" id="toc-r-design" class="nav-link" data-scroll-target="#r-design">6. R design</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/M-state-space-framework.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-state-space-framework.html">State space framework</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="m-ssf" class="quarto-section-identifier">State space framework</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">1. Overview</h2>
+<section id="description-of-the-general-model" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-general-model">1.1 Description of the general model</h3>
+<p>The <code>general linear gaussian</code> state-space model can be written in many different ways. The form considered in JD+ (<span class="math inline">\(\ge 3.0\)</span>) is presented below:</p>
+<p><span class="math display">\[ y_t = Z_t \alpha_t + \epsilon_t,\quad \epsilon_t \sim N\left(0, \sigma^2 H_t\right),\quad t \gt 0 \]</span></p>
+<p><span class="math display">\[ \alpha_{t+1} = T_t \alpha_t + \mu_t, \quad \mu_t \sim N \left(0, \sigma^2 V_t \right),\quad t \ge 0 \]</span></p>
+<p><span class="math inline">\(y_t\)</span> is the observation at period t, <span class="math inline">\(\alpha_t\)</span> is the state vector. <span class="math inline">\(\epsilon_t, \mu_t\)</span> are assumed to be serially independent at all leads and lags and independent from each other.<br>
+In the case of multi-variate models, <span class="math inline">\(y_t\)</span> is a vector of observations. However, in most cases, we will use the univariate approach by considering the observations one by one (univariate handling of multi-variate models).</p>
+<p>The innovations of the state equation will be modelled as</p>
+<p><span class="math display">\[ \mu_t = S_t \xi_t, \quad \xi_t \sim N\left( 0, \sigma^2 I\right) \]</span></p>
+<p>In other words, <span class="math inline">\(V_t=S_t S_t'\)</span></p>
+<p>The initial (<span class="math inline">\(\equiv t=0\)</span>) conditions of the filter are defined as follows:</p>
+<p><span class="math display">\[ \alpha_{0} = a_{0} + B\delta + \mu_{0}, \quad \delta \sim N\left(0, \kappa I \right),\: \mu_{0} \sim N\left(0, P_*\right)\]</span></p>
+<p>where <span class="math inline">\(\kappa\)</span> is arbitrary large. <span class="math inline">\(P_*\)</span> is the variance of the stationary part of the initial state vector and <span class="math inline">\(B\)</span> models the diffuse part. We write <span class="math inline">\(BB'=P_\infty\)</span>.</p>
+<p>The definition used in JD+ is quasi-identical to that of Durbin and Koopman[1].</p>
+<p>In summary, the model is completely defined by the following quantities (possible default values are indicated in brackets):</p>
+<p><span class="math display">\[ \mathbf{Z_t}, \mathbf{H_t} [=0] \]</span></p>
+<p><span class="math display">\[ \mathbf{T_t}, \mathbf{V_t} [=S_t S_t'], \mathbf{S_t} [=Cholesky(V)] \]</span></p>
+<p><span class="math display">\[ \mathbf{a_{0}}[=0], \mathbf{P_*} [=0], \mathbf{B} [=0], \mathbf{P_\infty} [=BB'] \]</span></p>
+</section>
+<section id="other-notations" class="level3">
+<h3 class="anchored" data-anchor-id="other-notations">1.2 Other notations</h3>
+<p>The following notations are used in all the pages related to the ssf framework:</p>
+<p><span class="math display">\[ a_{t+k|t}=E\left(\alpha_{t+k} | y_0 \cdots y_{t}\right)\]</span></p>
+<p><span class="math display">\[ P_{t+k|t}=var\left(\alpha_{t+k} | y_0 \cdots y_{t}\right)\]</span></p>
+<p><span class="math display">\[ a_{t+1}=a_{t+1|t}, \: P_{t+1}=P_{t+1|t} \]</span></p>
+<p>Finally, it should be noted that all the indexes of arrays or matrices start at 0 (Java and C++ convention).</p>
+</section>
+<section id="functional-forms" class="level3">
+<h3 class="anchored" data-anchor-id="functional-forms">1.3 Functional forms</h3>
+<p>State space forms and the related algorithms focus on the state vectors and their (conditional) distribution, and on the relationships between those vectors at different time points. For instance, using obvious notations, we will consider:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operations</th>
+<th>Formulae</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Initialization</td>
+<td><span class="math inline">\(a_0 = a_{0\vert -1}\)</span></td>
+</tr>
+<tr class="even">
+<td>Prediction</td>
+<td><span class="math inline">\(a_{t \vert t}\rightarrow a_{t+1 \vert t}=a_{t+1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Update</td>
+<td><span class="math inline">\(a_{t \vert t-1}=a_t \rightarrow a_{t \vert t}\)</span></td>
+</tr>
+<tr class="even">
+<td>Prediction error</td>
+<td><span class="math inline">\(e_t=y_t- \hat y_{t \vert t-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Smoothing</td>
+<td><span class="math inline">\(a_{t \vert n} \rightarrow a_{t-1\vert n}\)</span></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>The relationships considered above are usually expressed under the form of matrices. All things considered, matrices are only a convenient way for describing linear transformations. By replacing matrix computations (at least the most frequent and/or the most expansive ones) with equivalent functions, it is possible to achieve substantial performance gain.</p>
+<p>This is the basic principle of the JD+ state space framework: every type of model will have to provide a set of functions that allows an efficient computation of the different algorithms considered in the framework.</p>
+<p>We shall clarify that point by an example. The prediction step is defined by the equations:</p>
+<p><span class="math display">\[ a_{t+1 \vert t}=T_t a_{t \vert t}, \quad P_{t+1 \vert t}=T_t P_{t \vert t} T_t'+V_t=T_t \left(T_t P_{t \vert t} \right)'+V_t \]</span></p>
+<p>The transformation <span class="math inline">\(f_{T_t} (x)\)</span> of an array (and by extension, of a matrix) by means of the matrix <span class="math inline">\(T_t\)</span> plays thus a central role in the forecasting step:</p>
+<ul>
+<li>Apply <span class="math inline">\(f_{T_t}\)</span> on <span class="math inline">\(a\)</span></li>
+<li>Apply <span class="math inline">\(f_{T_t}\)</span> on each column of <span class="math inline">\(P\)</span> ; we get <span class="math inline">\(Q\)</span></li>
+<li>Apply <span class="math inline">\(f_{T_t}\)</span> on each row of <span class="math inline">\(Q\)</span> ; we get <span class="math inline">\(O\)</span></li>
+<li>Add <span class="math inline">\(V_t\)</span> to <span class="math inline">\(O\)</span></li>
+</ul>
+<p>In the case of (partially) time invariant systems, we will usually omit in the documentation of the framework the subscript <span class="math inline">\(_t\)</span> of the different arrays/matrices/functions.</p>
+<p>Using matrix computation, the transformation <span class="math inline">\(f_{T_t}\)</span> needs <span class="math inline">\(r \times r\)</span> multiplications, where <span class="math inline">\(r\)</span> is the length of the state array. In many cases, the functional form will involve at most <span class="math inline">\(r\)</span> multiplications and much less memory traffic.</p>
+<p>For instance, in some SSF forms of ARIMA models (see Gomez-Maravall, 1994), the function <span class="math inline">\(y=f_T(x)\)</span> is defined by</p>
+<p><span class="math display">\[ y_i = \begin{cases} x_{i+1} &amp; 0 \le i \lt r-1  \\ -\sum_{k=1}^p {\varphi_k x_{r-k} } &amp; i =r-1\end{cases} \]</span></p>
+<p>which corresponds to the transformation matrix</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; 0 \\
+0 &amp; \cdots &amp; \cdots &amp; 0 &amp; 1 \\
+0 &amp; \cdots &amp; -\phi_p &amp; - \cdots &amp; -\phi_1
+\end{pmatrix}
+\]</span></p>
+<p>It involves only <span class="math inline">\(p\)</span> (order of the autoregressive polynomial) multiplications.</p>
+<p>As soon as direct matrix computations are avoided, the matrices of the system themselves don’t usually need to be created. That leads to another substantial gain in time and in memory space/traffic, especially in the case of time dependent systems.</p>
+</section>
+</section>
+<section id="main-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="main-algorithms">2. Main algorithms</h2>
+<section id="stationary-models" class="level3">
+<h3 class="anchored" data-anchor-id="stationary-models">2.1 Stationary models</h3>
+<section id="ordinary-filter" class="level4">
+<h4 class="anchored" data-anchor-id="ordinary-filter">2.1.1 Ordinary filter</h4>
+</section>
+<section id="ordinary-smoother" class="level4">
+<h4 class="anchored" data-anchor-id="ordinary-smoother">2.1.2 Ordinary smoother</h4>
+</section>
+</section>
+<section id="non-stationary-models" class="level3">
+<h3 class="anchored" data-anchor-id="non-stationary-models">2.2 Non-stationary models</h3>
+</section>
+</section>
+<section id="definition-of-the-model-by-blocks" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-the-model-by-blocks">3. Definition of the model by blocks</h2>
+</section>
+<section id="description-of-the-predefined-blocks-available-in-jd" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-the-predefined-blocks-available-in-jd">4. Description of the predefined blocks available in JD+</h2>
+<section id="atomic-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="atomic-blocks">4.1 Atomic blocks</h3>
+</section>
+<section id="arma-model" class="level3">
+<h3 class="anchored" data-anchor-id="arma-model">4.1.1 ARMA model</h3>
+<section id="introduction" class="level4">
+<h4 class="anchored" data-anchor-id="introduction">Introduction</h4>
+<p>The ARMA process is defined by</p>
+<p><span class="math display">\[\Phi\left(B\right)y_t=\Theta\left(B\right)\epsilon_t \]</span></p>
+<p>where:</p>
+<p><span class="math display">\[\Phi\left(B\right)=1+\varphi_1 B + \cdots + \varphi_p B^p \]</span></p>
+<p><span class="math display">\[\Theta\left(B\right)=1+\theta_1 B + \cdots + \theta_q B^q \]</span></p>
+<p>are the auto-regressive and the moving average polynomials.</p>
+<p>The MA representation of the model is <span class="math inline">\(y_t=\sum_{i=0}^\infty {\psi_i \epsilon_{t-i}}\)</span>. Let <span class="math inline">\(\gamma_i\)</span> be the autocovariances of the model. We also define: <span class="math inline">\(r=\max\left(p, q+1\right), \quad s=r-1\)</span>.</p>
+<p>The state-space model can be written in different ways. JD+ provides two of them</p>
+</section>
+<section id="representation-i" class="level4">
+<h4 class="anchored" data-anchor-id="representation-i">Representation I</h4>
+<section id="state-vector" class="level5">
+<h5 class="anchored" data-anchor-id="state-vector">State vector</h5>
+<p><span class="math display">\[ \alpha_t= \begin{pmatrix} y_t \\ y_{t+1|t} \\ \vdots \\ y_{t+s|t} \end{pmatrix}\]</span></p>
+<p>where <span class="math inline">\(y_{t+i|t}\)</span> is the orthogonal projection of <span class="math inline">\(y_{t+i}\)</span> on the subspace generated by <span class="math inline">\({y\left(s\right):s \leq t}\)</span>.Thus, it is the forecast function with respect to the semi-infinite sample. We also have that <span class="math inline">\(y_{t+i|t} = \sum_{j=i}^\infty {\psi_j \epsilon_{t+i-j}}\)</span></p>
+</section>
+<section id="dynamics" class="level5">
+<h5 class="anchored" data-anchor-id="dynamics">Dynamics</h5>
+<p><span class="math display">\[ T_t = \begin{pmatrix}0 &amp;1 &amp; 0 &amp; \cdots &amp; 0  \\0&amp; 0 &amp; 1 &amp; \cdots &amp; 0\\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1\\
+-\varphi_r &amp; \cdots  &amp; \cdots &amp; \cdots &amp;-\varphi_1 \end{pmatrix}\]</span></p>
+<p>with <span class="math inline">\(\varphi_{j}=0\)</span> for <span class="math inline">\(j&gt;p\)</span></p>
+<p><span class="math display">\[ S_t = \begin{pmatrix}1 \\ \psi_1 \\ \vdots\\ \psi_s \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ V_t = S S' \]</span></p>
+</section>
+<section id="measurement" class="level5">
+<h5 class="anchored" data-anchor-id="measurement">Measurement</h5>
+<p><span class="math display">\[ Z_t = \begin{pmatrix} 1 &amp; 0 &amp; \cdots &amp; 0\end{pmatrix}\]</span></p>
+<p><span class="math display">\[ h_t = 0 \]</span></p>
+</section>
+<section id="initialization" class="level5">
+<h5 class="anchored" data-anchor-id="initialization">Initialization</h5>
+<p><span class="math display">\[ \alpha_{-1} = \begin{pmatrix}0 \\ 0 \\ \vdots\\ 0 \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ P_{*} = \Omega \]</span></p>
+<p><span class="math inline">\(\Omega\)</span> is the unconditional covariance of the state array; it can be easily derived using the MA representation. We have:</p>
+<p><span class="math display">\[ \Omega\left(i,0\right) = \gamma_i \]</span></p>
+<p><span class="math display">\[ \Omega\left(i,j\right) = \Omega\left(i-1,j-1\right)-\psi_i \psi_j \]</span></p>
+</section>
+</section>
+<section id="representation-ii" class="level4">
+<h4 class="anchored" data-anchor-id="representation-ii">Representation II</h4>
+<p>We provide below an alternative state space representation as follows</p>
+<section id="state-vector-1" class="level5">
+<h5 class="anchored" data-anchor-id="state-vector-1">State vector:</h5>
+<p><span class="math display">\[ \alpha_t= \begin{pmatrix} y_t \\
+-\varphi_2 y_{t-1}-\dots-\varphi_r y_{t-r+1}+\theta_1 \epsilon_t+ \dots + \theta_{r-1} \epsilon_{t-r+2}\\ -\varphi_3 y_{t-1}-\dots-\varphi_r y_{t-r+2}+\theta_2 \epsilon_t+ \dots + \theta_{r-1} \epsilon_{t-r+3}\\ \vdots \\
+-\varphi_r y_{t-1}+\theta_{r-1} \epsilon_{t}
+\end{pmatrix}\]</span></p>
+</section>
+<section id="dynamics-1" class="level5">
+<h5 class="anchored" data-anchor-id="dynamics-1">Dynamics</h5>
+<p><span class="math display">\[ T_t = \begin{pmatrix}-\varphi_1 &amp;1 &amp; 0 &amp; \cdots &amp; 0  \\
+-\varphi_2&amp; 0 &amp; 1 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\vdots &amp; 0 &amp; 0 &amp; \cdots &amp; 1\\
+-\varphi_r &amp; 0  &amp; \cdots &amp; \cdots &amp;0 \end{pmatrix}\]</span></p>
+<p><span class="math display">\[ S_t = \begin{pmatrix}1 \\ \theta_1 \\ \vdots\\ \theta_r \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ V_t = S S' \]</span></p>
+</section>
+<section id="measurement-1" class="level5">
+<h5 class="anchored" data-anchor-id="measurement-1">Measurement</h5>
+<p><span class="math display">\[ Z_t = \begin{pmatrix} 1 &amp; 0 &amp; \cdots &amp; 0\end{pmatrix}\]</span></p>
+<p><span class="math display">\[ h_t = 0 \]</span></p>
+</section>
+<section id="initialization-1" class="level5">
+<h5 class="anchored" data-anchor-id="initialization-1">Initialization</h5>
+<p><span class="math display">\[ \alpha_{-1} = \begin{pmatrix}0 \\ 0 \\ \vdots\\ 0 \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ P_{*} = \Omega \]</span></p>
+<p><span class="math inline">\(\Omega\)</span> is the unconditional covariance of the state array; it can be easily derived using the MA representation. We have:</p>
+<p><span class="math display">\[ \Omega\left(i,0\right) = \gamma_i \]</span></p>
+<p><span class="math display">\[ \Omega\left(i,j\right) = \Omega\left(i-1,j-1\right)-\psi_i \psi_j \]</span></p>
+</section>
+</section>
+</section>
+<section id="time-dependent-arma-model" class="level3">
+<h3 class="anchored" data-anchor-id="time-dependent-arma-model">4.1.2 Time dependent ARMA model</h3>
+<section id="introduction-1" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-1">Introduction</h4>
+<p>The time dependent ARMA process (TDARMA) is defined by</p>
+<p><span class="math display">\[ \Phi_t\left(B\right)y_t=\Theta_t\left(B\right)\epsilon_t \]</span></p>
+<p>where:</p>
+<p><span class="math display">\[\Phi_t\left(B\right)=1+\varphi_{t,1} B + \cdots + \varphi_{t,p} B^p \]</span></p>
+<p><span class="math display">\[\Theta_t\left(B\right)=1+\theta_{t,1} B + \cdots + \theta_{t,q} B^q \]</span></p>
+<p>are the time dependent auto-regressive and the moving average polynomials.</p>
+</section>
+<section id="state-vector-2" class="level4">
+<h4 class="anchored" data-anchor-id="state-vector-2">State vector:</h4>
+<p><span class="math display">\[ \alpha_t= \begin{pmatrix} y_t \\
+-\varphi_{t+1,2} y_{t-1}-\dots-\varphi_{t+1,r} y_{t-r+1}+\theta_{t+1,1} \epsilon_t+ \dots + \theta_{t+1, r-1} \epsilon_{t-r+2}\\ -\varphi_{t+2,3} y_{t-1}-\dots-\varphi_{t+2,r} y_{t-r+2}+\theta_{t+2,2 }\epsilon_t+ \dots + \theta_{t+2,r-1} \epsilon_{t-r+3}\\ \vdots \\
+-\varphi_{t+r-1,r} y_{t-1}+\theta_{t+r-1,r-1} \epsilon_{t}
+\end{pmatrix}\]</span></p>
+</section>
+<section id="dynamics-2" class="level4">
+<h4 class="anchored" data-anchor-id="dynamics-2">Dynamics</h4>
+<p><span class="math display">\[ \alpha_{t+1} = T_t \alpha_t + \begin{pmatrix} 1 \\ \theta_{t+2,1} \\ \theta_{t+3,2} \\ \vdots \\  \theta_{t+r, r-1} \\ \end{pmatrix} \epsilon_{t+1} \]</span></p>
+<p><span class="math display">\[ T_t = \begin{pmatrix}-\varphi_{t+1,1} &amp;1 &amp; 0 &amp; \cdots &amp; 0  \\
+-\varphi_{t+2,2} &amp; 0 &amp; 1 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\vdots &amp; 0 &amp; 0 &amp; \cdots &amp; 1\\
+-\varphi_{t+r,r} &amp; 0  &amp; \cdots &amp; \cdots &amp;0 \end{pmatrix}\]</span></p>
+<p><span class="math display">\[ S_t = \begin{pmatrix}\sigma_{t+1}\\ \sigma_{t+1} \theta_{t+2,1} \\ \vdots\\ \sigma_{t+1} \theta_{t+r,r-1} \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ V_t = S S' \]</span></p>
+</section>
+<section id="measurement-2" class="level4">
+<h4 class="anchored" data-anchor-id="measurement-2">Measurement</h4>
+<p><span class="math display">\[ Z_t = \begin{pmatrix} 1 &amp; 0 &amp; \cdots &amp; 0\end{pmatrix}\]</span></p>
+<p><span class="math display">\[ h_t = 0 \]</span></p>
+</section>
+<section id="initialization-2" class="level4">
+<h4 class="anchored" data-anchor-id="initialization-2">Initialization</h4>
+<p><span class="math display">\[ \alpha_0= \begin{pmatrix} y_0 \\
+-\varphi_{1,2} y_{-1}-\dots-\varphi_{1,r} y_{-r+1}+\theta_{1,1} \epsilon_0+ \dots + \theta_{1, r-1} \epsilon_{-r+2}\\ -\varphi_{2,3} y_{-1}-\dots-\varphi_{2,r} y_{-r+2}+\theta_{2,2 }\epsilon_0+ \dots + \theta_{2,r-1} \epsilon_{-r+3}\\ \vdots \\
+-\varphi_{r-1,r} y_{-1}+\theta_{r-1,r-1} \epsilon_{0}
+\end{pmatrix}\]</span></p>
+<p>The covariance of <span class="math inline">\(\alpha_0\)</span> can be easily computed, taking into account that <span class="math inline">\(y_0, \dots,y_{r-1}\)</span> and <span class="math inline">\(\epsilon_0, \dots, \epsilon_{r-1}\)</span> are generated by the same processes and that their variances/covariances are:</p>
+<p><span class="math display">\[ cov(y_i, y_j)=\gamma(i-j)\]</span></p>
+<p><span class="math display">\[ cov(y_i, \epsilon_j) = \psi_{j-i}\sigma^2, j\le i\]</span></p>
+<p><span class="math display">\[ cov(\epsilon_i, \epsilon_j)=\sigma^2, i=j \]</span></p>
+</section>
+</section>
+<section id="arima-model" class="level3">
+<h3 class="anchored" data-anchor-id="arima-model">4.1.3 ARIMA model</h3>
+<section id="introduction-2" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-2">Introduction</h4>
+<p>We consider that the auto-regressive polynomial contains some unit roots. It can be factorized in a stationary polynomial (defined by the roots outside the unit circle) and in a non-stationary polynomial (defined by the roots on the unit circle), which is notated:</p>
+<p><span class="math display">\[ \Delta\left(B\right) = 1 + \delta_1 B + \cdots + \delta_d B^d \]</span></p>
+<p>The state space form of an ARIMA model is similar to the state space form of an ARMA model, except for its initialization.</p>
+</section>
+<section id="initialization-3" class="level4">
+<h4 class="anchored" data-anchor-id="initialization-3">Initialization</h4>
+<p>The initial conditions can be written as follows:</p>
+<p><span class="math display">\[ \alpha_{-1} = \begin{pmatrix}1 \\ 0 \\ \vdots\\ 0 \end{pmatrix} \]</span></p>
+<p><span class="math display">\[ P_{*} = \Sigma \Omega \Sigma' \]</span></p>
+<p><span class="math display">\[ B = \Lambda \]</span></p>
+<p><span class="math display">\[ P_{\infty}= \Lambda \Lambda' \]</span></p>
+<p><span class="math inline">\(\Omega\)</span> is the unconditional covariance of the state array of the stationary model.</p>
+<p><span class="math display">\[ \Sigma = \begin{pmatrix} 1 &amp; 0 &amp; \cdots &amp; 0 \\ \lambda_1 &amp; 1 &amp; \cdots &amp; 0 \\ \lambda_2 &amp; \lambda_1 &amp; \cdots &amp; \vdots\\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ \lambda_{r-1} &amp; \lambda_{r-2} &amp; \cdots &amp; \lambda_{1} \end{pmatrix} \]</span></p>
+<p>where <span class="math inline">\(\lambda_{i}\)</span> are generated by <span class="math inline">\(\frac{1}{\Delta\left(B\right)}\)</span></p>
+<p><span class="math inline">\(\Lambda\)</span> is a r x d matrix; its first d rows form an identity matrix; other cells are defined by the recursive relationship:</p>
+<p><span class="math display">\[\Lambda \left(i,j\right) = -\sum_{k=1}^d {\delta_k \Lambda \left(i-k,j\right)}\]</span></p>
+</section>
+</section>
+<section id="noise" class="level3">
+<h3 class="anchored" data-anchor-id="noise">4.1.3 Noise</h3>
+</section>
+<section id="local-level" class="level3">
+<h3 class="anchored" data-anchor-id="local-level">4.1.4 Local level</h3>
+</section>
+<section id="local-linear-trend" class="level3">
+<h3 class="anchored" data-anchor-id="local-linear-trend">4.1.5 Local linear trend</h3>
+</section>
+<section id="seasonal-component" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-component">4.1.6 Seasonal component</h3>
+</section>
+<section id="cyclical-component" class="level3">
+<h3 class="anchored" data-anchor-id="cyclical-component">4.1.7 Cyclical component</h3>
+</section>
+<section id="complex-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="complex-blocks">4.2 Complex blocks</h3>
+</section>
+</section>
+<section id="java-design" class="level2">
+<h2 class="anchored" data-anchor-id="java-design">5. Java design</h2>
+</section>
+<section id="r-design" class="level2">
+<h2 class="anchored" data-anchor-id="r-design">6. R design</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jdemetra-new-documentation\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./M-STL-decomposition.html" class="pagination-link" aria-label="STL: Local regression decomposition">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">STL: Local regression decomposition</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./M-Temp-Disagg-Bench.html" class="pagination-link" aria-label="Benchmarking and Temporal disaggregation">
+        <span class="nav-page-text">Benchmarking and Temporal disaggregation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/M-state-space-framework.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<li>
+<a href="https://github.com/annasmyk/JD_Quarto_Book" target="blank">Code source</a>
+</li>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
