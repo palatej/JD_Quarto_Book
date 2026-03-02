@@ -16,8 +16,20 @@ The sections below will briefly describe the steps involved in installing JDemet
 Easy breezy
 
 ### The structure of the software
+At start-up of JDemetra+, the software loads the parts "Workspace" and "Providers". The latter includes multiple possibilities to load data into JDemetra+, most importantly loading spreadsheets (see below).
 
-Workspace, Providers, plug-ins
+[Picture of default JD+ view]
+
+The "Workspace" most importantly includes seasonal adjustment specificiations and results. For practical purposes, usually the "Seasonal adjustment" --> "multi-documents" section is most relevant. Here, multiple seasonal adjustment items can be placed. This means, that for each of multiple time series specifications can be defined, stored and used to compute the seasonally adjusted results.
+
+[Picture of JD+ with opened multi-docs]
+
+By right-clicking on an sa-item the user can select the base specification, most importantly, whether a Tramo-Seats or X-13 type adjustment should be applied.
+By left-clicking on one sa-item, the method-specific specifications can be set. This includes the ARIMA model, outlier and calendar adjustment as well as details of the seasonal adjustment method.
+
+[Picture of JD+ with specification]
+
+DO WE WANT TO DISCUSS PLUG-INS HERE?
 
 ## Data import
 
