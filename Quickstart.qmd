@@ -49,22 +49,18 @@ This allows you to manage and process many series in a consistent way: for each 
 Within a multi-document, each SA item can be configured individually.  
   
 - By **right-clicking** on an SA item, you can choose the **base specification**, in particular whether the series should be adjusted using:  
-  - **TRAMO/SEATS**, or    
-  - **X-13ARIMA-SEATS** (X-13).  
+  - **Tramo-Seats**, or    
+  - **X-13-ARIMA** (X-13).  
   
-- By **left-clicking** on an SA item, you open the detailed, method-specific **specification editor**. Here you can set:  
+- By **left-clicking** on an SA item, you open the detailed, method-specific **specification editor** (opens on the right side of the panel). Here you can set:  
   - the **ARIMA model** (automatic or user-defined),  
   - **outlier detection and treatment**,  
   - **calendar effects** (trading day, Easter, etc.),  
   - and the detailed options of the **seasonal adjustment** procedure itself (filters, decomposition options, diagnostics).  
   
-These specifications can be saved and reused across series, ensuring consistent seasonal adjustment settings within and across projects.  
+These specifications can be saved and reused across series.  
   
 ![**JD3 with specifications open**](All_images/JDspecification.png)  
-
-
-
-
 
 
 
