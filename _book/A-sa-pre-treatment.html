@@ -410,41 +410,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -494,9 +459,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
-<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
-<p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="#m-reg-a">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
+<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="#a-reg-a">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
+<p>More in-depth methodological explanations of the algorithms can be found in <a href="#part-M">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
@@ -506,8 +471,8 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
-<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="A-calendar-correction.html">here</a></p></li>
-<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="A-outlier-detection.html">here</a></p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="#a-cal">here</a></p></li>
+<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="#a-out-reg-ext">here</a></p></li>
 <li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
 </section>

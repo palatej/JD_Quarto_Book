@@ -70,7 +70,7 @@ book:
           city: Madrid
           url: "https://www.ine.es/"
       role: "Collaborator"
-  date: "03/10/2026"
+  date: "03/24/2026"
   page-navigation: true
   chapters:
     - index.qmd
@@ -119,12 +119,12 @@ book:
         # - M-state-space-framework.qmd ##(#m-ssf)
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
-    -  Output_Description.qmd ##(#output-chap)
-    - part: P-Use-Cases.qmd ##(#part-U)
-      chapters:
-        - U-forecasting-nowcasting.qmd ##(#u-now)
-        - U-outlier-detection.qmd ##(#u-out)
-        - U-refreshing-data.qmd ##(#u-refresh)
+    # -  Output_Description.qmd ##(#output-chap)
+    # - part: P-Use-Cases.qmd ##(#part-U)
+    #   chapters:
+    #     - U-forecasting-nowcasting.qmd ##(#u-now)
+    #     - U-outlier-detection.qmd ##(#u-out)
+    #     - U-refreshing-data.qmd ##(#u-refresh)
     - references.bib
 bibliography: references.bib
 

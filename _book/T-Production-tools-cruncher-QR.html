@@ -408,41 +408,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -518,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The cruncher is an additional “executable” module. It can be launched via R or SAS for example.</p>
 <p>Objectives of the cruncher:</p>
 <ul>
-<li><p>update a JDemetra+ workspace (with a selected <a href="A-rev-policies.html">revision policy</a>)</p></li>
+<li><p>update a JDemetra+ workspace (with a selected <a href="#a-rev-pol">revision policy</a>)</p></li>
 <li><p>export the results (series,diagnostics and parameters)</p></li>
 </ul>
 <p>without having to open the graphical interface and operate manually. Suitable for a production process.</p>
@@ -572,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>General context: two use cases</p>
 <ul>
 <li><p>Run first or complete estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)</p></li>
-<li><p>Apply a <a href="A-rev-policies.html">revision policy</a> to updated raw series</p></li>
+<li><p>Apply a <a href="#a-rev-pol">revision policy</a> to updated raw series</p></li>
 </ul>
 <p>The function <a href="https://aqlt.github.io/rjwsacruncher/reference/cruncher_and_param.html"><code class="sourceCode r"><span class="fu">cruncher_and_param</span>()</code></a> allows to do that:</p>
 <div class="cell">

@@ -6,6 +6,7 @@ A pdf version of this documentation is available [here](https://github.com/annas
 
 ![](All_images/JD+-Eurostat-COSA.png)
 
+
 ## Main Features
 
 JDemetra+ provides [algorithms](#part-A) for:

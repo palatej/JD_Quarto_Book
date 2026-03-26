@@ -376,41 +376,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -475,16 +440,16 @@ ul.task-list li input[type="checkbox"] {
 acgf(z)=\sum_{k=-\infty}^{\infty}\gamma(k){z^{k}}
 \tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(z\)</span> denotes a complex scalar.</p>
-<p>Once <a href="M-tests.html#eq-1">Equation&nbsp;<span>1</span></a> is divided by <span class="math inline">\(\pi\)</span> and evaluated at some <span class="math inline">\(z{=e}^{-i\omega}=cos\omega-isin\omega\)</span>, where <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(\omega\)</span> is a real scalar, <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>, the result of this transformation is called a population spectrum <span class="math inline">\(f(\omega)\)</span>for <span class="math inline">\(\ x_{t}\)</span>, given in <a href="M-tests.html#eq-2">Equation&nbsp;<span>2</span></a> (HAMILTON, J.D. (1994)).</p>
+<p>Once <a href="#eq-1">Equation&nbsp;<span class="quarto-unresolved-ref">eq-1</span></a> is divided by <span class="math inline">\(\pi\)</span> and evaluated at some <span class="math inline">\(z{=e}^{-i\omega}=cos\omega-isin\omega\)</span>, where <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(\omega\)</span> is a real scalar, <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>, the result of this transformation is called a population spectrum <span class="math inline">\(f(\omega)\)</span>for <span class="math inline">\(\ x_{t}\)</span>, given in <a href="#eq-2">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2</span></a> (HAMILTON, J.D. (1994)).</p>
 <p><span id="eq-2"><span class="math display">\[
 f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
 \tag{2}\]</span></span></p>
 <p>Therefore, the analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain analysis; however it provides an alternative way of inspecting the process. Because <span class="math inline">\(f(\omega)\text{dω}\)</span> is interpreted as a contribution to the variance of components with frequencies in the range <span class="math inline">\((\omega,\ \omega+d\omega)\)</span>, a peak in the spectrum indicates an important contribution to the variance at frequencies near the value that corresponds to this peak.</p>
-<p>As <span class="math inline">\(e^{-i\omega}=cos\omega-isin\omega\)</span>, the spectrum can be also expressed as in <a href="M-tests.html#eq-3">Equation&nbsp;<span>3</span></a>.</p>
+<p>As <span class="math inline">\(e^{-i\omega}=cos\omega-isin\omega\)</span>, the spectrum can be also expressed as in <a href="#eq-3">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3</span></a>.</p>
 <p><span id="eq-3"><span class="math display">\[
 f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{(cos\omega k-isin\omega k)\gamma(k)}
 \tag{3}\]</span></span></p>
-<p><a href="M-tests.html#eq-3">Equation&nbsp;<span>3</span></a> can be presented as:</p>
+<p><a href="#eq-3">Equation&nbsp;<span class="quarto-unresolved-ref">eq-3</span></a> can be presented as:</p>
 <p><span id="eq-4"><span class="math display">\[
 f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ωk}]
 \tag{4}\]</span></span></p>
@@ -526,16 +491,16 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <p><span id="eq-7"><span class="math display">\[
 \mathbf{x}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}{a_{j}\mathbf{e}_{j}}
 \tag{7}\]</span></span></p>
-<p>where the coefficients <span class="math inline">\(a_{j}=\mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}}\)</span> are derived from <a href="M-SEATS-decomposition.html#eq-7">Equation&nbsp;<span>7</span></a> by multiplying the equation on the left by <span class="math inline">\(\mathbf{e}_{j}^{*}\)</span> and using <a href="M-SEATS-decomposition.html#eq-5">Equation&nbsp;<span>5</span></a>.</p>
+<p>where the coefficients <span class="math inline">\(a_{j}=\mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}}\)</span> are derived from <a href="#eq-7">Equation&nbsp;<span class="quarto-unresolved-ref">eq-7</span></a> by multiplying the equation on the left by <span class="math inline">\(\mathbf{e}_{j}^{*}\)</span> and using <a href="#eq-5">Equation&nbsp;<span class="quarto-unresolved-ref">eq-5</span></a>.</p>
 <p>The sequence of <span class="math inline">\(\{a_{j},j\in F_{n}\}\)</span> is referred as a discrete Fourier transform of <span class="math inline">\(\mathbf{x}\mathbb{\in C}^{n}\)</span> and the periodogram <span class="math inline">\(I(\omega_{j})\)</span> of <span class="math inline">\(\mathbf{x}\)</span> at Fourier frequency <span class="math inline">\(\omega_{j}=\frac{2\pi j}{n}\)</span> is defined as the square of the Fourier transform <span class="math inline">\(\{a_{j}\}\)</span> of <span class="math inline">\(\mathbf{x}\)</span>:</p>
 <p><span id="eq-8"><span class="math display">\[
 {I(\omega_{j})\mathbf{=}{|a_{j} |^{2}}_{\ }=n^{-\ 1}|\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}} |^{2}}_{\mathbf{\ }}
 \tag{8}\]</span></span></p>
-<p>From <a href="M-SEATS-decomposition.html#eq-6">Equation&nbsp;<span>6</span></a> and <a href="M-SEATS-decomposition.html#eq-7">Equation&nbsp;<span>7</span></a> it can be shown that a periodogram decomposes the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> into a sum of components associated with the Fourier frequencies <span class="math inline">\(ω_{j}\)</span>:</p>
+<p>From <a href="#eq-6">Equation&nbsp;<span class="quarto-unresolved-ref">eq-6</span></a> and <a href="#eq-7">Equation&nbsp;<span class="quarto-unresolved-ref">eq-7</span></a> it can be shown that a periodogram decomposes the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> into a sum of components associated with the Fourier frequencies <span class="math inline">\(ω_{j}\)</span>:</p>
 <p><span id="eq-9"><span class="math display">\[
 \sum_{t=1}^{n}{|x_{t}|}^{2}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}|a_{j}|^{2}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}{I(\omega_{j})}
 \tag{9}\]</span></span></p>
-<p>If <span class="math inline">\(\ \mathbf{x\  \in}\ {R}^{n}\)</span>, <span class="math inline">\(\omega_{j}\)</span> and <span class="math inline">\({-\omega}_{j}\)</span> are both in <span class="math inline">\([-\pi,-\pi]\)</span> and <span class="math inline">\(a_{j}\)</span> is presented in its polar form (i.e.&nbsp;<span class="math inline">\(a_{j}=r_{j}\exp(i\theta_{j})\)</span>), where <span class="math inline">\(r_{j}\)</span> is the modulus of <span class="math inline">\(a_{j}\)</span>, then <a href="M-SEATS-decomposition.html#eq-7">Equation&nbsp;<span>7</span></a> can be rewritten in the form:</p>
+<p>If <span class="math inline">\(\ \mathbf{x\  \in}\ {R}^{n}\)</span>, <span class="math inline">\(\omega_{j}\)</span> and <span class="math inline">\({-\omega}_{j}\)</span> are both in <span class="math inline">\([-\pi,-\pi]\)</span> and <span class="math inline">\(a_{j}\)</span> is presented in its polar form (i.e.&nbsp;<span class="math inline">\(a_{j}=r_{j}\exp(i\theta_{j})\)</span>), where <span class="math inline">\(r_{j}\)</span> is the modulus of <span class="math inline">\(a_{j}\)</span>, then <a href="#eq-7">Equation&nbsp;<span class="quarto-unresolved-ref">eq-7</span></a> can be rewritten in the form:</p>
 <p><span id="eq-10"><span class="math display">\[
 \mathbf{x}=a_{0}\mathbf{e}_{0}+\sum_{j=1}^{[\frac{n-1}{2}]}{ {2^{1/2}r}_{j}{(\mathbf{c}}_{j}\cos\theta_{j}{-\mathbf{s}}_{j}\sin\theta_{j})+a_{n/2}\mathbf{e}_{n/2}}
 \tag{10}\]</span></span></p>
@@ -550,7 +515,7 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <p><span class="math display">\[
 \mathbf{e}_{n/2}={(-(n^{-\frac{1}{2}}),n^{-\frac{1}{2}},\ldots,{-(n)}^{-\frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 \]</span></p>
-<p><a href="#eq-9">Equation&nbsp;<span>9</span></a> can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in <a href="#eq-9">Equation&nbsp;<span>9</span></a> is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
+<p><a href="#eq-9">Equation&nbsp;<span class="quarto-unresolved-ref">eq-9</span></a> can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in <a href="#eq-9">Equation&nbsp;<span class="quarto-unresolved-ref">eq-9</span></a> is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
 <p><span id="eq-11"><span class="math display">\[
 \widehat{a}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
 \tag{11}\]</span></span></p>
@@ -566,7 +531,7 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <p><span id="eq-15"><span class="math display">\[
 {\widehat{\beta}}_{j}=2^{1/2}r_{j}\sin{\theta_{j}}={(\frac{n}{2})}^{-1/2}\sum_{t=1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j=1,\ldots,[\frac{n-1}{2}]
 \tag{15}\]</span></span></p>
-<p>With <a href="#eq-9">Equation&nbsp;<span>9</span></a> the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times [\frac{n-1}{2}]\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq [\frac{n-1}{2}]\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span>.</p>
+<p>With <a href="#eq-9">Equation&nbsp;<span class="quarto-unresolved-ref">eq-9</span></a> the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times [\frac{n-1}{2}]\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq [\frac{n-1}{2}]\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span>.</p>
 <p><strong>Decomposition of sum of squares into components corresponding to the harmonics</strong></p>
 <table class="table">
 <colgroup>
@@ -628,7 +593,7 @@ I(\omega_{j})\mathbf{=}\begin{matrix}r_{j}^{2}=\frac{1}{2}{(\alpha}_{j}^{2}+\bet
 \end{matrix}
 \tag{16}\]</span></span></p>
 <p>where <span class="math inline">\(j=0,\ldots,[\frac{n}{2}]\)</span>.</p>
-<p>Since <span class="math inline">\(\mathbf{x}-\overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> <a href="#eq-9">Equation&nbsp;<span>9</span></a> can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
+<p>Since <span class="math inline">\(\mathbf{x}-\overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> <a href="#eq-9">Equation&nbsp;<span class="quarto-unresolved-ref">eq-9</span></a> can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
 <p><span id="eq-17"><span class="math display">\[
 \mathbf{x}-a_{0}\mathbf{e}_{0}=\sum_{j=1}^{[(n-1)/2]}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j})+a_{n/2}\mathbf{e}_{n/2}
 \tag{17}\]</span></span></p>
@@ -638,13 +603,13 @@ n^{-1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{[(n-1)/2]}2{r_
 +{a_{n/2}}^{2})
 \tag{18}\]</span></span></p>
 <p>where <span class="math inline">\(a_{n/2}^{2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd.</p>
-<p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>12</span></a> is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>12</span></a> shows then how the total variance is partitioned.</p>
+<p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in <a href="#eq-18">Equation&nbsp;<span class="quarto-unresolved-ref">eq-18</span></a> is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and <a href="#eq-18">Equation&nbsp;<span class="quarto-unresolved-ref">eq-18</span></a> shows then how the total variance is partitioned.</p>
 <p>The periodogram ordinate <span class="math inline">\(I(\omega_{j})\)</span> and the autocovariance coefficient <span class="math inline">\(\gamma(k)\)</span> are both quadratic forms of <span class="math inline">\(x_{t}\)</span>. It can be shown that the periodogram and autocovariance function are related and the periodogram can be written in terms of the sample autocovariance function for any non-zero Fourier frequency <span class="math inline">\(ω_{j}\)</span> (The proof is given in BROCKWELL, P.J., and DAVIS, R.A. (2006)).</p>
 <p><span id="eq-19"><span class="math display">\[
 I(\omega_{j})=\sum_{|k |&lt; n}^{\ }{\widehat{\gamma}(k)}_{\ }e^{-ik\omega_{j}}={\widehat{\gamma}(0)}_{\ }+2\sum_{k=1}^{n-1}{\widehat{\gamma}(k)\cos{(k\omega_{j})}}_{\ }
 \tag{19}\]</span></span></p>
 <p>and for the zero frequency <span class="math inline">\(\ I(0)=n|\overline{x}|^{2}\)</span>.</p>
-<p>Once comparing <a href="M-SEATS-decomposition.html#eq-19">Equation&nbsp;<span>13</span></a> with an expression of the spectral density of a stationary process:</p>
+<p>Once comparing <a href="#eq-19">Equation&nbsp;<span class="quarto-unresolved-ref">eq-19</span></a> with an expression of the spectral density of a stationary process:</p>
 <p><span id="eq-20"><span class="math display">\[
 f(\omega_{\ })=\frac{1}{2\pi}\sum_{k &lt;-\infty}^{\infty}{\gamma(k)}_{\ }e^{-ik\omega_{\ }}=\frac{1}{2\pi}[{\gamma(0)}_{\ }+2(\sum_{k=1}^{\infty}{\gamma(k)\cos{(k\omega_{\ })}})]
 \tag{20}\]</span></span></p>
@@ -757,7 +722,7 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 <p>where <span class="math inline">\(CV(\omega_{j})\)</span> is the critical value of a <span class="math inline">\(F(d_{1},d_{2})\)</span> distribution, where the degrees of freedom are determined using simulations. For <span class="math inline">\(\omega_{j}=\pi\)</span>, we have a significant peak when <span class="math inline">\(\frac{f_{x}(\omega_{[n/2]})}{[f_{x}(\omega_{[(n-1)/2]})]} \ge CV(\omega_{j})\)</span></p>
 <p>Two significant levels for this test are considered: <span class="math inline">\(\alpha=0.05\)</span> (code “t”) and <span class="math inline">\(\alpha=0.01\)</span> (code “T”).</p>
 <p>As opposed to the AR spectrum test, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
-<p>Practical implementation in GUI is detailed <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-id-p-tuckey">here</a></p>
+<p>Practical implementation in GUI is detailed <a href="#t-GUI-tstools-id-p-tuckey">here</a></p>
 </section>
 <section id="in-ar-spectrum-definition" class="level3">
 <h3 class="anchored" data-anchor-id="in-ar-spectrum-definition">In AR Spectrum definition</h3>
@@ -828,7 +793,7 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 </tbody>
 </table>
 <p>Currently, only seasonal frequencies are tested, but the program allows you to manually plot the AR spectrum and focus your attention on both seasonal and trading day frequencies. Agustin Maravall has conducted a simulation experiment to calculate <span class="math inline">\(CV(\lambda_{42})\)</span> (trading day frequency) and proposes to set for all <span class="math inline">\(j\)</span> equal to the critical value associated to the trading frequency, but this is currently not part of the current automatic testing procedure of JDemetra+.</p>
-<p>Practical implementation in GUI is detailed <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-id-p-ar">here</a></p>
+<p>Practical implementation in GUI is detailed <a href="#t-GUI-tstools-id-p-ar">here</a></p>
 </section>
 <section id="in-a-periodogram" class="level3">
 <h3 class="anchored" data-anchor-id="in-a-periodogram">In a Periodogram</h3>
@@ -919,13 +884,13 @@ I(\omega_{j})=a_{j}^{2}=n^{-1}|\sum_{t=1}^{n}\mathbf{X_t} e^{-it\omega_j}|^{2},
 \]</span></p>
 <p>where <span class="math inline">\(\delta=1\)</span> if <span class="math inline">\(n\)</span> is even and 0 otherwise.</p>
 <p>In small samples, the test performs better when the periodogram is evaluated as the exact seasonal frequencies. JDemetra+ modifies the sample size to ensure the seasonal frequencies belong to the set of Fourier frequencies. This strategy provides a very simple and effective way to eliminate the leakage problem.</p>
-<p>Practical implementation in GUI is detailed <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-id-p-per">here</a></p>
+<p>Practical implementation in GUI is detailed <a href="#t-GUI-tstools-id-p-per">here</a></p>
 </section>
 </section>
 </section>
 <section id="m-spectral-analysis-m-spectrum-graphs" class="level2">
 <h2 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-graphs">Spectral graphs</h2>
-<p>The section below provides guidance on interpretation of spectral graphs, the display of which in the Graphical User Interface can be found <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-spec-graphs">here</a></p>
+<p>The section below provides guidance on interpretation of spectral graphs, the display of which in the Graphical User Interface can be found <a href="#t-GUI-tstools-spec-graphs">here</a></p>
 <p>The interpretation of the spectral graph is rather straightforward. When the values of a spectral graph for low frequencies (i.e.&nbsp;one year and more) are large in relation to its other values it means that the long-term movements dominate in the series. When the values of a spectral graph for high frequencies (i.e.&nbsp;below one year) are large in relation to its other values it means that the series are rather trendless and contains a lot of noise. When the values of a spectral graph are distributed randomly around a constant without any visible peaks, then it is highly probable that the series is a random process. The presence of seasonality in a time series is manifested in a spectral graph by the peaks on the seasonal frequencies.</p>
 
 

@@ -376,41 +376,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -464,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- - KW, DO...tests -->
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter provides a theoritical overview of all the tests available in JDemetra+, via <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">Graphical User Interface</a> and <a href="#t-r-packs-tests">R packages</a>.</p>
+<p>This chapter provides a theoritical overview of all the tests available in JDemetra+, via <a href="#t-GUI-tstools-tests">Graphical User Interface</a> and <a href="#t-r-packs-tests">R packages</a>.</p>
 <!-- to be added: which test are done when Seats decomposition vs X-13-ARIMA. -->
 <!-- For SA processings (TS and X13 alike) In GUI tests are in 2 places : main results : residuals and residual seasonality -->
 <!-- Diagnostics Node  -->
@@ -787,7 +752,7 @@ Q=\frac{SS_t}{SS_e}
 </section>
 <section id="moving-seasonality-test" class="level3">
 <h3 class="anchored" data-anchor-id="moving-seasonality-test">Moving seasonality test</h3>
-<p>The evolutive seasonality test is based on a two-way analysis of variance model. The model uses the values from complete years only. Depending on the decomposition type for the Seasonal/Irregular component it uses <a href="#eq-1">Equation&nbsp;<span>1</span></a> (in the case of a multiplicative model) or <a href="#eq-2">Equation&nbsp;<span>2</span></a> (in the case of an additive model):</p>
+<p>The evolutive seasonality test is based on a two-way analysis of variance model. The model uses the values from complete years only. Depending on the decomposition type for the Seasonal/Irregular component it uses <a href="#eq-1">Equation&nbsp;<span class="quarto-unresolved-ref">eq-1</span></a> (in the case of a multiplicative model) or <a href="#eq-2">Equation&nbsp;<span class="quarto-unresolved-ref">eq-2</span></a> (in the case of an additive model):</p>
 <p><span class="math display">\[
 |\text{SI}_{\text{ij}}-1|=X_{\text{ij}}=b_{i}+m_{j}+e_{\text{ij}}
 \]</span></p>

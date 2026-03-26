@@ -376,41 +376,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -470,9 +435,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Additional chapters related to GUI features, provide information on:</p>
 <ul>
-<li><a href="T-GUI-Overview.html">Overview</a></li>
-<li><a href="T-GUI-SA-Modelling-Features.html">Specific Seasonal Adjustment and Modelling features</a></li>
-<li><a href="T-GUI-Output.html">Output: series, parameters and diagnostics</a></li>
+<li><a href="#t-gui-overview">Overview</a></li>
+<li><a href="#t-gui-sa">Specific Seasonal Adjustment and Modelling features</a></li>
+<li><a href="#t-gui-output">Output: series, parameters and diagnostics</a></li>
 </ul>
 </section>
 <section id="data-visualization" class="level2">
@@ -492,7 +457,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>Launching the <em>Chart</em> functionality</strong></figcaption>
 </figure>
 </div>
-<p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="A-outlier-detection.html#usr-def-var"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
+<p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="#usr-def-var"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref27.jpg" class="img-fluid figure-img"></p>
@@ -559,7 +524,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Show crosshair</strong> – highlights an active cell.</p></li>
 <li><p><strong>Zoom</strong> – option for modifying the chart size.</p></li>
 </ul>
-<p>When none of the series is selected, the local menu offers a reduced list of options. The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
+<p>When none of the series is selected, the local menu offers a reduced list of options. The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref32.jpg" class="img-fluid figure-img"></p>
@@ -578,15 +543,15 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Kind</strong> – displays m/m (or q/q) and y/y growth rates for all time series in the chart (previous period and previous year options respectively). By default, the period-over-period growth rates are shown.</p></li>
 <li><p><strong>Edit last year</strong> – for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the <a href="#options"><em>Options</em></a> section, if required.</p></li>
 </ul>
-<p>The explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
-<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="T-GUI-Overview.html#providers-window"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
+<p>The explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="#providers-window"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref34.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>A view of a list of series</strong></figcaption>
 </figure>
 </div>
-<p>For a selected series a local menu offers an extended list of options. The explanation of the functions available for the local menu is given below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
+<p>For a selected series a local menu offers an extended list of options. The explanation of the functions available for the local menu is given below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref35.jpg" class="img-fluid figure-img"></p>
@@ -685,7 +650,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="aggregation" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation">Aggregation</h2>
-<p><em>Aggregation</em> calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the <em>List</em> functionality. <em>Aggregation</em> opens an empty window. To sum the selected series, drag and drop them from the <em>Providers</em> window into the <em>Aggregation</em> window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option <em>Select by frequency</em>, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user’s choice). The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the <em>List</em> functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in <em>Chart</em> (see <a href="T-GUI-Overview.html#container"><em>Container</em></a>).</p>
+<p><em>Aggregation</em> calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the <em>List</em> functionality. <em>Aggregation</em> opens an empty window. To sum the selected series, drag and drop them from the <em>Providers</em> window into the <em>Aggregation</em> window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option <em>Select by frequency</em>, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user’s choice). The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the <em>List</em> functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in <em>Chart</em> (see <a href="#container"><em>Container</em></a>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref37.jpg" class="img-fluid figure-img"></p>
@@ -702,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>The properties of the <em>Differencing</em> tool</strong></figcaption>
 </figure>
 </div>
-<p>Typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the “<em>Local menu options for chart</em>” figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
+<p>Typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the “<em>Local menu options for chart</em>” figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref39.jpg" class="img-fluid figure-img"></p>
@@ -713,7 +678,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="t-GUI-tstools-tests" class="level2">
 <h2 class="anchored" data-anchor-id="t-GUI-tstools-tests">Tests</h2>
-<p>Here we describe describe the GUI access to and display of tests. The underlying methods are detailed in <a href="M-tests.html">this chapter</a></p>
+<p>Here we describe describe the GUI access to and display of tests. The underlying methods are detailed in <a href="#m-tests">this chapter</a></p>
 <section id="seasonality-tests" class="level3">
 <h3 class="anchored" data-anchor-id="seasonality-tests">Seasonality Tests</h3>
 <section id="qs-test" class="level4">

@@ -410,41 +410,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -769,14 +734,14 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision =</span> <span class="fl">1e-9</span>, <span class="at">approximateHessian =</span> <span class="cn">TRUE</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="T-r-packages.html">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
+<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="#t-r-packs">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
 </section>
 </section>
 <section id="decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 <section id="extended-x-11" class="level3">
 <h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
-<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
+<p>X-11 is the decomposition module of <a href="#sa-overview">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
 <p><span class="math display">\[
 \begin{array}{lll}
 B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                

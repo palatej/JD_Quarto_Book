@@ -12,7 +12,7 @@
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Luis Sanguiao Sande">
 <meta name="author" content="Felix Aparicio Perez">
-<meta name="dcterms.date" content="2026-03-10">
+<meta name="dcterms.date" content="2026-03-24">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -414,41 +414,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P-Use-Cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use cases</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-forecasting-nowcasting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Forecasting and Nowcasting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./U-refreshing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Refreshing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -559,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 10, 2026</p>
+      <p class="date">March 24, 2026</p>
     </div>
   </div>
   
@@ -571,11 +536,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-is-jdemetra" class="level1 unnumbered">
 <h1 class="unnumbered">What is JDemetra+?</h1>
-<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open source software for <strong>seasonal adjustment and time series analysis</strong>, developed by the National Bank of Belgium with the support of the Bundesbank, Insee and the partners of the <a href="#COSA-abstract">COSA</a>, (<strong>CO</strong>fidentiality <strong>S</strong>easonal <strong>A</strong>djustment and time series), project co-founded by Eurostat. JDemetra+ has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a <a href="T-GUI-Overview.html"><strong>Graphical User Interface</strong></a> and an <a href="https://github.com/rjdverse?view_as=public"><strong>ecosystem of R packages (rjdverse)</strong></a>. The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow to combine the capabilities of JDemetra+ with the versatility of the R world, be it for statistical functions or data wrangling. A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
+<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open source software for <strong>seasonal adjustment and time series analysis</strong>, developed by the National Bank of Belgium with the support of the Bundesbank, Insee and the partners of the <a href="#COSA-abstract">COSA</a>, (<strong>CO</strong>fidentiality <strong>S</strong>easonal <strong>A</strong>djustment and time series), project co-founded by Eurostat. JDemetra+ has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a <a href="#t-gui-overview"><strong>Graphical User Interface</strong></a> and an <a href="https://github.com/rjdverse?view_as=public"><strong>ecosystem of R packages (rjdverse)</strong></a>. The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow to combine the capabilities of JDemetra+ with the versatility of the R world, be it for statistical functions or data wrangling. A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
 <p><img src="All_images/JD+-Eurostat-COSA.png" class="img-fluid"></p>
 <section id="main-features" class="level2">
 <h2 class="anchored" data-anchor-id="main-features">Main Features</h2>
-<p>JDemetra+ provides <a href="P_Algorithms.html">algorithms</a> for:</p>
+<p>JDemetra+ provides <a href="#part-A">algorithms</a> for:</p>
 <ul>
 <li><p>Seasonal Adjustment</p></li>
 <li><p>Trend estimation</p></li>
@@ -587,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="currently-available-versions" class="level2">
 <h2 class="anchored" data-anchor-id="currently-available-versions">Currently available versions</h2>
 <p>The latest release in version 3 family can be found <a href="https://github.com/jdemetra/jdplus-main/releases">here</a>.</p>
-<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>.</p>
+<p>Version 3.x family provides, <a href="#v3-vs-v2">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>.</p>
 <p>The latest release in version 2 family can be found <a href="https://github.com/jdemetra/jdemetra-app/releases">here</a>.</p>
 <p>The highest version using Java 8 is v2.2.4.</p>
 </section>
@@ -644,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="additional-plug-ins" class="level3">
 <h3 class="anchored" data-anchor-id="additional-plug-ins">Additional Plug-ins</h3>
-<p>To benefit from extended features of the graphical user interface installing additional plug-ins is required. The list of available extensions and the installation procedure are detailed <a href="T-plug-ins.html">here</a>. How to access the added features in the GUI is described <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<p>To benefit from extended features of the graphical user interface installing additional plug-ins is required. The list of available extensions and the installation procedure are detailed <a href="#t-plug-ins">here</a>. How to access the added features in the GUI is described <a href="#t-gui-sa">here</a>.</p>
 <p>In the <strong>v2.x family</strong> some of the additional features are:</p>
 <ul>
 <li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/nbbrd/jdemetra-benchmarking">Plug-in here</a></p></li>
@@ -659,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cruncher" class="level3">
 <h3 class="anchored" data-anchor-id="cruncher">Cruncher</h3>
-<p>JDemetra+ has an executable module, called the <a href="T-Production-tools-cruncher-QR.html">Cruncher</a>, allowing to automate tasks</p>
+<p>JDemetra+ has an executable module, called the <a href="#t-prod">Cruncher</a>, allowing to automate tasks</p>
 <p>To install it :</p>
 <ul>
 <li><p>in v2, go to the <a href="https://github.com/jdemetra/jwsacruncher"><strong>JWSACruncher</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-2.2.x-bin.zip</code>, corresponding to the version of your Graphical User Interface.</p></li>
@@ -668,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="r-packages" class="level3">
 <h3 class="anchored" data-anchor-id="r-packages">R packages</h3>
-<p>JDemetra+ algorithms can be accessed in R, which is detailed <a href="T-r-packages.html">here</a></p>
+<p>JDemetra+ algorithms can be accessed in R, which is detailed <a href="#t-r-packs">here</a></p>
 <p>You can directly head over to this <a href="https://github.com/rjdverse?view_as=public">GitHub page</a>, then for each package indications for installation and basic use are provided in the readme files.</p>
 <!-- general readme to build and specific to check -->
 <section id="Rconfig" class="level4">
