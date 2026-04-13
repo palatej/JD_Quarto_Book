@@ -8,13 +8,13 @@ book:
   
   page-footer:
     right: |
-      <li><a href="https://github.com/annasmyk/JD_Quarto_Book" target="blank">Code source</a></li>
+      <li><a href="https://github.com/jdemetra/JD_Quarto_Book" target="blank">Code source</a></li>
     left: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   
   repo-actions: [edit,issue]
   site-url: https://jdemetra-new-documentation.netlify.app/
-  repo-url: https://github.com/annasmyk/JD_Quarto_Book
+  repo-url: https://github.com/jdemetra/JD_Quarto_Book
   repo-branch: main
   # cover-image: resources/logo-utilitr.png
   # favicon: resources/logo-utilitr.png

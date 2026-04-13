@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -391,15 +391,20 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#modelling-window" id="toc-modelling-window" class="nav-link" data-scroll-target="#modelling-window">Modelling</a></li>
   <li><a href="#sa-window" id="toc-sa-window" class="nav-link" data-scroll-target="#sa-window">Seasonal adjustment</a></li>
   </ul></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a>
+  <ul class="collapse">
+  <li><a href="#results-panel" id="toc-results-panel" class="nav-link" data-scroll-target="#results-panel">Results panel</a></li>
+  </ul></li>
   <li><a href="#statistical-methods" id="toc-statistical-methods" class="nav-link" data-scroll-target="#statistical-methods">Statistical Methods Menu</a></li>
   <li><a href="#direct-indirect" id="toc-direct-indirect" class="nav-link" data-scroll-target="#direct-indirect">Direct-Indirect method</a>
   <ul class="collapse">
   <li><a href="#context" id="toc-context" class="nav-link" data-scroll-target="#context">Context</a></li>
   <li><a href="#in-gui-v2" id="toc-in-gui-v2" class="nav-link" data-scroll-target="#in-gui-v2">In GUI v2</a></li>
   </ul></li>
+  <li><a href="#Spec-Def-App" id="toc-Spec-Def-App" class="nav-link" data-scroll-target="#Spec-Def-App">Defining and Applying Specifications</a></li>
   <li><a href="#X13-Spec-conv" id="toc-X13-Spec-conv" class="nav-link" data-scroll-target="#X13-Spec-conv">Conversion of X13-Arima-Seats specifications to JDemetra+</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/T-GUI-SA-Modelling-Features.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/T-GUI-SA-Modelling-Features.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -425,13 +430,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-ARIMA or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment.</p>
 <p>Note that the menu and window structure as well as options and results are almost identical in both cases.</p>
+<p>Important TOPICS</p>
+<ul>
+<li><p>creating a workspace</p></li>
+<li><p>defining and applying specifications</p></li>
+</ul>
 <p>Additional chapters related to GUI features, provide information on:</p>
 <ul>
-<li><a href="#t-gui-overview">Overview</a></li>
-<li><a href="#t-GUI-tstools">Data visualization and generic time series tools</a></li>
-<li><a href="#t-gui-output">Output: series, parameters and diagnostics</a></li>
+<li><a href="T-GUI-Overview.html">Overview</a></li>
+<li><a href="T-GUI-Data-Viz-TS-Tools.html">Data visualization and generic time series tools</a></li>
+<li><a href="T-GUI-Output.html">Output: series, parameters and diagnostics</a></li>
 </ul>
-<p>Currently, this chapter is widely incomplete, additional content will be uploaded in the coming weeks.</p>
 </section>
 <section id="how-to-create-a-workspace" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-create-a-workspace">How to create a Workspace?</h2>
@@ -444,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>To create a Workspace:</p>
 <ol type="1">
-<li><p>Click on the <a href="#file-menus"><span class="button">File</span></a> button</p></li>
+<li><p>Click on the <a href="T-GUI-Overview.html#file-menus"><span class="button">File</span></a> button</p></li>
 <li><p>Then, click on <span class="button">New Workspace</span></p></li>
 </ol>
 <p>A new Workspace called <em>Workspace_2</em> is created.</p>
@@ -462,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="#modelling-window">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process)</p></li>
 <li><p><a href="#sa-window">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
-<li><p>Utilities (<a href="#usr-def-cal">calendars</a> and <a href="#usr-def-var">user defined variables</a>).</p></li>
+<li><p>Utilities (<a href="A-calendar-correction.html#usr-def-cal">calendars</a> and <a href="A-outlier-detection.html#usr-def-var">user defined variables</a>).</p></li>
 </ul>
 <p>You can click on the image in the area that interests you:</p>
 <p><img src="All_images/A_Ref8.png" usemap="#ws_map"> <map name="ws_map"> &lt;area alt=“modelling” title=“Modeling” href=“#modelling-window” coords=“0,50,554,206 shape=”rect”&gt; <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="0,206,554,434" shape="rect"> <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="0,434,554,513" shape="rect"> </map></p>
@@ -487,7 +496,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sa-window" class="level3">
 <h3 class="anchored" data-anchor-id="sa-window">Seasonal adjustment</h3>
-<p>This window allows to set up and launch a <a href="#sa-overview">seasonal adjustment process</a>.</p>
+<p>This window allows to set up and launch a <a href="A-sa-overview.html">seasonal adjustment process</a>.</p>
 <p>Some plugins give you additional features:</p>
 <ul>
 <li>jdplus-highfreq-desktop-plugin give you access to the extended airline algorithm</li>
@@ -506,22 +515,23 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the seasonal adjustment procedure marked</strong></figcaption>
 </figure>
 </div>
-<section id="specifications" class="level4">
-<h4 class="anchored" data-anchor-id="specifications">Specifications</h4>
+<section id="specifications-left-node" class="level4">
+<h4 class="anchored" data-anchor-id="specifications-left-node">Specifications Left Node</h4>
 </section>
-<section id="output" class="level4">
-<h4 class="anchored" data-anchor-id="output">Output</h4>
-<section id="results-panel" class="level5">
-<h5 class="anchored" data-anchor-id="results-panel">Results panel</h5>
-<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="#window-menu">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
+</section>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<section id="results-panel" class="level3">
+<h3 class="anchored" data-anchor-id="results-panel">Results panel</h3>
+<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="T-GUI-Overview.html#window-menu">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref9.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>The <em>Results</em> panel filled with two windows</strong></figcaption>
 </figure>
 </div>
-</section>
-</section>
+<p>###Specifications Right-Box</p>
 </section>
 </section>
 <section id="statistical-methods" class="level2">
@@ -545,7 +555,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <ul>
-<li><a href="#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.</li>
+<li><a href="T-r-packages.html#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -554,9 +564,9 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <ul>
-<li><p><a href="#seasonal-adjustment">Tools</a> – provides access to:</p>
+<li><p><a href="T-r-packages.html#seasonal-adjustment">Tools</a> – provides access to:</p>
 <ul>
-<li><a href="#t-GUI-tstools-tests">seasonality tests</a></li>
+<li><a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">seasonality tests</a></li>
 <li>and to <a href="#direct-indirect">Direct-Indirect Seasonal adjustment tools</a></li>
 </ul></li>
 </ul>
@@ -605,7 +615,7 @@ Only in v2
 <figcaption class="figure-caption"><strong>The properties of the <em>Direct - Indirect seasonal adjustment</em> functionality</strong></figcaption>
 </figure>
 </div>
-<p>By default, the <a href="#a-pre-t-def-spec">pre-defined Tramo-Seats specification</a> is used (RSAfull) for seasonal adjustment of a dataset. To change it, click on the button marked in the picture below. This will provide you with the alternative specifications. Here the user defined specification named <em>My spec</em> is chosen.</p>
+<p>By default, the <a href="A-sa-pre-treatment.html#a-pre-t-def-spec">pre-defined Tramo-Seats specification</a> is used (RSAfull) for seasonal adjustment of a dataset. To change it, click on the button marked in the picture below. This will provide you with the alternative specifications. Here the user defined specification named <em>My spec</em> is chosen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_SF_image8.jpg" class="img-fluid figure-img"></p>
@@ -619,14 +629,14 @@ Only in v2
 <figcaption class="figure-caption"><strong>Running a process</strong></figcaption>
 </figure>
 </div>
-<p>The bottom panel presents the detailed results. The seasonality test node presents the outcome of the <a href="#t-GUI-tstools-tests">seasonality tests</a> performed for the aggregated series adjusted directly (<em>Direct sa</em>) and indirectly (<em>Indirect sa</em>). The reason for presenting these tests here is that the presence of residual seasonality and calendar effects should be monitored, especially in the indirectly adjusted series (see <span class="citation" data-cites="guidelines2015">(<a href="#ref-guidelines2015" role="doc-biblioref"><strong>guidelines2015?</strong></a>)</span>). It might happen that the seasonality is successfully removed from the components but it is still present in the aggregated series.</p>
+<p>The bottom panel presents the detailed results. The seasonality test node presents the outcome of the <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">seasonality tests</a> performed for the aggregated series adjusted directly (<em>Direct sa</em>) and indirectly (<em>Indirect sa</em>). The reason for presenting these tests here is that the presence of residual seasonality and calendar effects should be monitored, especially in the indirectly adjusted series (see <span class="citation" data-cites="guidelines2015">(<a href="#ref-guidelines2015" role="doc-biblioref"><strong>guidelines2015?</strong></a>)</span>). It might happen that the seasonality is successfully removed from the components but it is still present in the aggregated series.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_SF_image10.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Seasonality tests’ results for a direct seasonal adjustment</strong></figcaption>
 </figure>
 </div>
-<p>The <em>Differences</em> node presents selected different results between the direct and the indirect seasonal adjustment approaches. The <em>Statistics</em> section shows basic statistics (average, standard deviation, minimum and maximum) for the relative differences (%) between the direct and the indirect SA series. <em>Chart</em> contains the graph of the differences, while <em>Table</em> includes the actual values. The <em>Periodogram</em> section presents graphs for two spectral estimators – <a href="#m-spectral-analysis-m-spectrum-periodogram">the periodogram</a> and <a href="#m-spectral-analysis-m-spectrum-ar-est">the auto-regressive spectrum</a>.</p>
+<p>The <em>Differences</em> node presents selected different results between the direct and the indirect seasonal adjustment approaches. The <em>Statistics</em> section shows basic statistics (average, standard deviation, minimum and maximum) for the relative differences (%) between the direct and the indirect SA series. <em>Chart</em> contains the graph of the differences, while <em>Table</em> includes the actual values. The <em>Periodogram</em> section presents graphs for two spectral estimators – <a href="M-spectral-analysis.html#m-spectral-analysis-m-spectrum-periodogram">the periodogram</a> and <a href="M-spectral-analysis.html#m-spectral-analysis-m-spectrum-ar-est">the auto-regressive spectrum</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_SF_image11.jpg" class="img-fluid figure-img"></p>
@@ -642,8 +652,12 @@ Only in v2
 </div>
 </section>
 </section>
+<section id="Spec-Def-App" class="level2">
+<h2 class="anchored" data-anchor-id="Spec-Def-App">Defining and Applying Specifications</h2>
+</section>
 <section id="X13-Spec-conv" class="level2">
 <h2 class="anchored" data-anchor-id="X13-Spec-conv">Conversion of X13-Arima-Seats specifications to JDemetra+</h2>
+<!-- from DT  -->
 <!-- Les fichiers `.spc` seront convertis en en fichiers `.xml`.  -->
 <!-- Vous pouvez utiliser le [SpecParser](https://github.com/bbkrd/SpecParser) (la documentation est [ici](https://bbkrd.github.io/pages/specparser/)). -->
 <!-- 1) Vous devez installer le plugin **SpecParser** dans JDemetra+. La procédure est décrite [ici](https://jdemetra-new-documentation.netlify.app/t-plug-ins#t-plug-ins-inst) et vous pouvez trouver le plugin [ici](https://github.com/bbkrd/SpecParser/releases/download/2.0.22/SpecParser-2.0.22.nbm). -->

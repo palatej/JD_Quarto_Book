@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -438,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#test-for-residual-calendar-effects" id="toc-test-for-residual-calendar-effects" class="nav-link" data-scroll-target="#test-for-residual-calendar-effects">Test for Residual Calendar effects</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-calendar-correction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-calendar-correction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -462,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In this chapter, the calendar correction used in JDemetra+ is discussed.</p>
 <p>This chapter is divided in two parts. The first one (theory) outlines the rationale for calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.</p>
-<p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X-13-ARIMA and Tramo-Seats it boils down to adding suitable regressors to the <a href="#sa-pre-t">pre-treatment phase</a>). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
+<p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X-13-ARIMA and Tramo-Seats it boils down to adding suitable regressors to the <a href="A-sa-pre-treatment.html">pre-treatment phase</a>). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
 <ul>
 <li><p>step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.</p></li>
 <li><p>step 2: generate regressors based on the above defined calendar</p></li>
@@ -474,9 +474,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Most of the functions are designed for quarterly and monthly data. What applies to daily and weekly data will be highlighted.</p>
 <p>Regressors are corrected for deterministic seasonality through a long-term mean correction</p>
 <ul>
-<li>step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on <a href="#sa-pre-t">pre-treatment</a> and <a href="#a-sa-hf">SA of High-Frenquency data</a>.</li>
+<li>step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on <a href="A-sa-pre-treatment.html">pre-treatment</a> and <a href="A-sa-hf.html">SA of High-Frenquency data</a>.</li>
 </ul>
-<p>How to generate other types of regressors is described <a href="#a-out-reg-ext">here</a> and how to plug them into Reg-ARIMA models is detailed <a href="#sa-pre-t">here</a></p>
+<p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into Reg-ARIMA models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
 <!-- ## Tools Map -->
 <!-- up coming content -->
 <section id="rationale-for-calendar-correction" class="level2">

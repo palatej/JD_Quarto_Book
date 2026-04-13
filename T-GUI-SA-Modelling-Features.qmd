@@ -6,6 +6,12 @@ This chapter covers specific Seasonal Adjustment and Modelling features. Modelli
 
 Note that the menu and window structure as well as options and results are almost identical in both cases.
 
+Important TOPICS
+
+- creating a workspace
+
+- defining and applying specifications
+
 
 Additional chapters related to GUI features, provide information on:
 
@@ -13,7 +19,7 @@ Additional chapters related to GUI features, provide information on:
 - [Data visualization and generic time series tools](#t-GUI-tstools)
 - [Output: series, parameters and diagnostics](#t-gui-output)
 
-Currently, this chapter is widely incomplete, additional content will be uploaded in the coming weeks.
+
 
 
 ## How to create a Workspace?
@@ -109,16 +115,22 @@ The specifications and output for the seasonal adjustment procedure are displaye
 
 ![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.png)
 
-#### Specifications 
+#### Specifications Left Node 
 
-#### Output
 
-##### Results panel {#results-panel}
+
+
+## Output
+
+### Results panel {#results-panel}
 
 
 The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. [The windows in the results panel can be arranged in many different ways](#window-menu), depending on the user's needs. The example below shows one of the possible views of this panel. The results of the user's analysis are displayed in an accompanying window. The picture below shows two panels -- a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).
 
 ![**The *Results* panel filled with two windows**](All_images/A_Ref9.jpg)
+
+###Specifications Right-Box 
+
 
 
 ## Statistical Methods Menu {#statistical-methods}
@@ -197,7 +209,12 @@ The *Details* node include the basic statistics for the relative differences bet
 
 [^1]: Description based on @guidelines2015.
 
+
+## Defining and Applying Specifications {#Spec-Def-App}
+
 ## Conversion of X13-Arima-Seats specifications to JDemetra+ {#X13-Spec-conv}
+
+<!-- from DT  -->
 
 <!-- Les fichiers `.spc` seront convertis en en fichiers `.xml`.  -->
 <!-- Vous pouvez utiliser le [SpecParser](https://github.com/bbkrd/SpecParser) (la documentation est [ici](https://bbkrd.github.io/pages/specparser/)). -->

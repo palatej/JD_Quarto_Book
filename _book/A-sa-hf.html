@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -452,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-hf.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-sa-hf.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -734,14 +734,14 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision =</span> <span class="fl">1e-9</span>, <span class="at">approximateHessian =</span> <span class="cn">TRUE</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="#t-r-packs">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
+<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="T-r-packages.html">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
 </section>
 </section>
 <section id="decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 <section id="extended-x-11" class="level3">
 <h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
-<p>X-11 is the decomposition module of <a href="#sa-overview">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
+<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
 <p><span class="math display">\[
 \begin{array}{lll}
 B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                

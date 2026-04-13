@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -435,7 +435,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-ARIMA model Results and Diagnostics</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -459,9 +459,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="#m-reg-a">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
-<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="#a-reg-a">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
-<p>More in-depth methodological explanations of the algorithms can be found in <a href="#part-M">this part</a> of the documentation.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
+<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
+<p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
@@ -471,8 +471,8 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
-<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="#a-cal">here</a></p></li>
-<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="#a-out-reg-ext">here</a></p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="A-calendar-correction.html">here</a></p></li>
+<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="A-outlier-detection.html">here</a></p></li>
 <li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
 </section>

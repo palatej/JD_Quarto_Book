@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#set-in-r" id="toc-set-in-r" class="nav-link" data-scroll-target="#set-in-r">Set in R</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-seats-decomposition.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-sa-seats-decomposition.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -472,8 +472,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter focuses on practical implementation of a Seats decomposition using the graphical user interface <a href="#tools-GUI">GUI</a> and R using <a href="#t-r-packs">R packages</a> in version 2.x and 3.x. More explanations on Seats algorithm can be found <a href="#m-seats">here</a>.</p>
-<p>In recent years Seats has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described <a href="#sa-hf">here</a> with more methodological details <a href="#m-sa-hf">here</a>.</p>
+<p>This chapter focuses on practical implementation of a Seats decomposition using the graphical user interface <a href="#tools-GUI">GUI</a> and R using <a href="T-r-packages.html">R packages</a> in version 2.x and 3.x. More explanations on Seats algorithm can be found <a href="M-SEATS-decomposition.html">here</a>.</p>
+<p>In recent years Seats has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described <a href="#sa-hf">here</a> with more methodological details <a href="M-sa-hf.html">here</a>.</p>
 <p>The sections below will describe</p>
 <ul>
 <li><p><a href="#a-sa-Seats-default-specs">specifications</a> needed to run Seats</p></li>
@@ -486,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>Seats is the second (decomposition) step in a seasonal adjustment processing with <a href="#sa-overview">Tramo-Seats</a>, once a <a href="#sa-pre-t">pre-treatment with Tramo</a> has been performed. Seats is an <a href="#m-seats">ARIMA Model Based (AMB)</a> algorithm and will decompose the linearized series using the ARIMA model fit in Tramo.</p>
+<p>Seats is the second (decomposition) step in a seasonal adjustment processing with <a href="A-sa-overview.html">Tramo-Seats</a>, once a <a href="A-sa-pre-treatment.html">pre-treatment with Tramo</a> has been performed. Seats is an <a href="M-SEATS-decomposition.html">ARIMA Model Based (AMB)</a> algorithm and will decompose the linearized series using the ARIMA model fit in Tramo.</p>
 </section>
 <section id="tools-for-seats-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="tools-for-seats-decomposition">Tools for Seats decomposition</h2>
@@ -542,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="quick-launch">Quick Launch</h2>
 <section id="default-specifications" class="level3">
 <h3 class="anchored" data-anchor-id="default-specifications">Default specifications</h3>
-<p>The default specifications for Seats must be chosen at the starting of the SA processing. Starting point for Tramo-Seats, detailed <a href="#sa-pre-t-ts-specs">here</a></p>
+<p>The default specifications for Seats must be chosen at the starting of the SA processing. Starting point for Tramo-Seats, detailed <a href="A-sa-pre-treatment.html#sa-pre-t-ts-specs">here</a></p>
 </section>
 <section id="using-gui" class="level3">
 <h3 class="anchored" data-anchor-id="using-gui">Using GUI</h3>

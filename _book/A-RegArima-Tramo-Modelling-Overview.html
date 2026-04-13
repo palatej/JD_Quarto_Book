@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -426,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#gui" id="toc-gui" class="nav-link" data-scroll-target="#gui">GUI</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-RegArima-Tramo-Modelling-Overview.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-RegArima-Tramo-Modelling-Overview.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -452,9 +452,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <!-- to revamp as not really described here -->
 <p>This chapter gives an overview of modelling algorithms available in JDemetra+.</p>
-<p>Modelling features can be used stand alone or as <a href="#sa-pre-t">pre-treatment</a> (first step of <a href="#sa-overview">seasonal adjustment</a>).</p>
-<p>Details on modelling (specifications and output characteristics) are provided in the <a href="#sa-pre-t">pre-treatment chapter</a> as they relate to the same procedure. High-Frequency (infra-monthly) data is tackled <a href="#a-sa-hf">here</a>.</p>
-<p>Additional methodological explanations are covered in <a href="#m-reg-a">this chapter</a> and in <a href="#m-sa-hf">this one</a> for high-frequency data.</p>
+<p>Modelling features can be used stand alone or as <a href="A-sa-pre-treatment.html">pre-treatment</a> (first step of <a href="A-sa-overview.html">seasonal adjustment</a>).</p>
+<p>Details on modelling (specifications and output characteristics) are provided in the <a href="A-sa-pre-treatment.html">pre-treatment chapter</a> as they relate to the same procedure. High-Frequency (infra-monthly) data is tackled <a href="A-sa-hf.html">here</a>.</p>
+<p>Additional methodological explanations are covered in <a href="M-reg-arima-modelling.html">this chapter</a> and in <a href="M-sa-hf.html">this one</a> for high-frequency data.</p>
 </section>
 <section id="modelling-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-algorithms">Modelling Algorithms</h2>
@@ -500,10 +500,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Steps to use Reg-ARIMA and Tramo in a pre-treatment context are described <a href="#sa-pre-t">here</a>.</p>
-<p>The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained <a href="#t-gui-sa">here</a>.</p>
-<p><a href="#a-sa-hf">Extended Airline Model</a> allows to handle infra-monthly series in a restricted reg-ARIMA framework, more details <a href="#a-sa-hf">here</a>.</p>
-<p><a href="#a-sa-bsm">Structural time series (STS)</a> allow another kind of modelling using state space framework, more details <a href="#a-sa-bsm">here</a>.</p>
+<p>Steps to use Reg-ARIMA and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>.</p>
+<p>The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra-monthly series in a restricted reg-ARIMA framework, more details <a href="A-sa-hf.html">here</a>.</p>
+<p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework, more details <a href="A-sa-bsm.html">here</a>.</p>
 </section>
 <section id="practical-reg-arima-modelling" class="level2">
 <h2 class="anchored" data-anchor-id="practical-reg-arima-modelling">Practical Reg-ARIMA modelling</h2>
@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gui" class="level3">
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
-<p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (<code>.xml</code> file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="#t-gui-sa">here</a>.</p>
+<p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (<code>.xml</code> file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
 <section id="modelling-in-the-workspace-window" class="level4">
 <h4 class="anchored" data-anchor-id="modelling-in-the-workspace-window">Modelling in the Workspace Window</h4>
 <div class="quarto-figure quarto-figure-center">
